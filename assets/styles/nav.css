@@ -1,0 +1,169 @@
+/* Importing font (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* General Customizations */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Barlow;
+
+}
+
+body {
+    background-color: var(--Bodycolor);
+}
+
+/* Color Palette */
+:root {
+    --Headercolor: #000000;
+    --Linkcolor: #ffff;
+    --Hovercolor: #328fec;
+    --Bodycolor: #bbbaba;
+}
+
+/* Link customization */
+a {
+    text-decoration: none;
+    color: var(--Linkcolor);
+    font-weight: 500;
+}
+
+/* Navigation links transition */
+li a {
+    transition: 0.3s;
+
+}
+
+/* Logo name */
+.logo {
+    font-size: 22px;
+    letter-spacing: 3px;
+}
+
+/* Change the positioning of all items in the navigation bar */
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--Headercolor);
+    height: 12vh;
+}
+
+/* Change the positioning of only the list components */
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-list li {
+    font-size: 16px;
+    gap: 20px;
+}
+
+/* Here the classes ".list-line" and ".line" are used to display a line below the navigation links. */
+.line {
+    height: 1px;
+}
+
+.list-line:hover {
+
+    .line {
+
+        transition: 0.5s;
+        background-color: var(--Hovercolor);
+    }
+
+    li a {
+        transition: 0.5s;
+        color: var(--Hovercolor);
+    }
+}
+
+/* The mobile menu present in the HTML structure is hidden */
+.menu-mobile {
+    display: none;
+    cursor: pointer;
+}
+
+/* The menu icon is created manually in this part. */
+.menu-mobile div {
+    width: 30px;
+    height: 3px;
+    background-color: #ffff;
+    margin-top: 5px;
+    transition: 0.3s;
+}
+
+/* Considering smaller screens, which affect responsiveness, the "@media" rule is created. */
+@media (max-width:999px) {
+   
+/* Hide the elements that overflow off the screen. */
+    body {
+        overflow-x: hidden;
+    }
+   
+/* Position the navigation links on the right side in a column layout. */
+    .nav-list {
+        position: absolute;
+        top: 12vh;
+        right: 0;
+        width: 50vw;
+        height: 88vh;
+        background: var(--Headercolor);
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+
+    .nav-list li {
+        margin-left: 0;
+    }
+
+/* The "hamburger" icon is displayed on the screen. */
+    .menu-mobile {
+        display: block;
+    }
+
+    
+
+/* Here the mobile navigation bar is moved to the right side of the screen. */
+    .nav-list.active {
+        transform: translateX(0);
+    }
+
+
+/* Here is the customization of the "close" animation for the icon. */
+    .menu-mobile.active .line1 {
+
+        transform: rotate(0deg);
+
+    }
+
+    .menu-mobile.active .line2 {
+        position: relative;
+        top: 7px;
+        transform: rotate(40deg);
+    }
+
+    .menu-mobile.active .line3 {
+        transform: rotate(-40deg);
+    }
+}
+
+
+/* Arrival effect for the links. */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
